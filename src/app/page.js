@@ -1,3 +1,5 @@
+"use client";
+import { useState } from "react";
 import Image from "next/image";
 import Header from "@/app/components/Header";
 import Heading from "@/app/components/Heading";
@@ -5,6 +7,8 @@ import Dot from "@/app/components/Dot";
 import Thumbnail from "@/app/components/Thumbnail";
 
 export default function Home() {
+  const [isActiveImg, setActiveImg] = useState("/navy.png");
+
   return (
     <div className="container">
       <Header />
@@ -21,13 +25,13 @@ export default function Home() {
 
         <section className="right">
           <figure>
-            <Image src="/navy.png" alt="Iwatch ur" width={450} height={450} />
+            <Image src={isActiveImg} alt="Iwatch ur" width={450} height={450} />
           </figure>
 
           <div>
-            <Thumbnail imgsrc="/navy.png" color="#40435499" />
-            <Thumbnail imgsrc="/mint.png" color="#58D7C499" />
-            <Thumbnail imgsrc="/ocean.png" color="#D0DFE599" />
+            <Thumbnail imgsrc="/navy.png" color="#40435499" setActiveImg={setActiveImg} />
+            <Thumbnail imgsrc="/mint.png" color="#58D7C499" setActiveImg={setActiveImg} />
+            <Thumbnail imgsrc="/ocean.png" color="#D0DFE599" setActiveImg={setActiveImg} />
           </div>
         </section>
 
